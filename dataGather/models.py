@@ -59,7 +59,7 @@ class DataGather(models.Model):
         ("رسوبی", "رسوبی"),
         ("دگرگونی", "دگرگونی"),
     )
-    rock_choice = models.CharField(max_length=10,
+    rock_choice = models.CharField(max_length=20,
                                    choices=Rock_Choices,
                                    default="انتخاب کنید",
                                    verbose_name="نوع عازضه سنگ/کانی را انتخاب کنید ")
@@ -67,8 +67,7 @@ class DataGather(models.Model):
 
     color = models.CharField(max_length=100,
                              verbose_name="رنگ سنگ/کانی و رنگ خاکه آن ")
-    Mohs_hardness = models.IntegerField(max_length=1,
-                                        verbose_name=" سختی سنگ در مفیاس موس از ۱ تا ۹ ")
+    Mohs_hardness = models.IntegerField(verbose_name=" سختی سنگ در مفیاس موس از ۱ تا ۹ ")
     """ https://www.google.com/search?q=%D8%A7%D8%B4%D9%84+%D9%85%D9%88%D8%B3&client=ubuntu-sn&hs=GlL&sca_esv=
     6246709ce63302d6&sca_upv=1&channel=fs&ei=h7AKZtGVNqaLxc8PrqOn-AM&ved=0ahUKEwiR9ZXhiaGFAxWmRfEDHa7RCT8Q4dUDCBA&uact=
     5&oq=%D8%A7%D8%B4%D9%84+%D9%85%D9%88%D8%B3&gs_lp=Egxnd3Mtd2l6LXNlcnAiDdin2LTZhCDZhdmI2LMyBhAAGBYYHkidM1CqDljdLnADeAC
@@ -79,7 +78,7 @@ class DataGather(models.Model):
         ("می‌جوشد", "می‌جوشد"),
         ("نمی‌جوشد", "نمی‌جوشد")
     )
-    reaction_acid = models.CharField(max_length=5,
+    reaction_acid = models.CharField(max_length=25,
                                      choices=reaction_acid_Choices,
                                      verbose_name="واکنش سنگ/کانی به اسید")
 

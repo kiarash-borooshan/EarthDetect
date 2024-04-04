@@ -1,0 +1,34 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+{% load static %}
+<html xmlns="http://www.w3.org/1999/xhtml" lang="">
+
+<head>
+    <title>{% block title %} {% endblock %}</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <link href="{% static 'style.css' %}" rel="stylesheet" type="text/css" />
+    <script type="text/javascript" src="{% static 'js/cufon-yui.js' %}"></script>
+    <script type="text/javascript" src="{% static 'js/arial.js' %}"></script>
+    <script type="text/javascript" src="{% static 'js/cuf_run.js' %}"></script>
+</head>
+
+
+<body>
+<div class="main">
+
+  {% include 'partial/header_navBar.html' %}
+
+  <div class="content">
+    <div class="content_resize">
+
+      {% block content %}
+
+      {% endblock %}
+
+    </div>
+  </div>
+
+  {% include 'partial/footer.html' %}
+
+</div>
+</body>
+</html>
