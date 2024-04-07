@@ -1,6 +1,6 @@
-from django.contrib.auth import login, password_validation, authenticate
+from django.contrib.auth import login, authenticate, logout
 from django.shortcuts import render, redirect
-from .forms import RegistrationForm
+from .forms import RegistrationForm, LoginForm
 
 
 def register_view(request):
@@ -37,3 +37,33 @@ def register_view(request):
     return render(request,
                   "account/register.html",
                   {"form": form})
+
+
+def login_view(request):
+    user = request.user
+    # TODO redirect to dashboard
+    if user.is_authenticated:
+        return redirect("dataGather:index")
+
+    if request.POST:
+        form = LoginForm(data=request.POST)
+        if form.is_valid():
+            cd = form.cleaned_data
+            email = cd["email"]
+            password = cd["password"]
+
+            acc = authenticate(email=email, password=password)
+            if acc:
+                login(request, acc)
+                # TODO redirect to dashboard
+                return redirect("dataGather:index")
+    else:
+        form = LoginForm()
+    return render(request,
+                  "account/login.html",
+                  {"form": form})
+
+
+def logout_view(request):
+    logout(request)
+    return redirect("dataGather:index")

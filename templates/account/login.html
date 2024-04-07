@@ -5,7 +5,6 @@
     <form method="post">
         {% csrf_token %}
 
-
         {% if form.errors %}
             <p style="color:red">
                 لظفا خطاهای زیر را اصلاح کنید
@@ -36,32 +35,26 @@
 
         {% endif %}
 
-        <h2 class="text-center"> register </h2>
+
+        <h2 class="text-center">Login</h2>
         <div class="form-group">
             <label>
-                <input type="text" name="username" class="form-control" placeholder="نام کاربری" required="required">
+                <input type="text" name="email" class="form-control" placeholder="ایمیل " required="required">
             </label>
         </div>
         <div class="form-group">
             <label>
-                <input type="text" name="email" class="form-control" placeholder="ایمیل" required="required">
+                <input type="password" name="password" class="form-control" placeholder="رمز عبور " required="required">
             </label>
         </div>
         <div class="form-group">
-            <label>
-                <input type="password" name="password1" class="form-control" placeholder="رمز عبور" required="required">
-            </label>
+            <button type="submit" class="btn btn-primary">ورود</button>
         </div>
-        <div class="form-group">
-            <label>
-                <input type="password" name="password2" class="form-control" placeholder="تکرار رمز عبور" required="required">
-            </label>
-        </div>
-        <div class="form-group">
-            <button type="submit" class="btn btn-primary">ثبت‌نام</button>
+        <div class="clearfix">
+            <a href="#" class="float-right">پسورد خود را فراموش کرده‌اید؟ </a>
         </div>        
     </form>
-    <p class="text-center"><a href="#">قبلا اکانت داشتید؟ </a></p>
+    <p class="text-center"><a href="{% url 'account:register' %}"> ساخت اکانت جدید </a></p>
 </div>
 
 {% endblock %}

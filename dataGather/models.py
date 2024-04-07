@@ -88,7 +88,8 @@ class DataGather(models.Model):
                                     blank=True, null=True)
     """ اگر گیاه بیمار باشد """
     disease = models.CharField(max_length=200,
-                               verbose_name=" اگر گیاه یا درخت دارای بیماری باشد نام بیماری یا تنش وارد شده به عارضه را بیان کنید",
+                               verbose_name=" اگر گیاه یا درخت دارای بیماری باشد"
+                                            " نام بیماری یا تنش وارد شده به عارضه را بیان کنید",
                                blank=True, null=True)
     disease_explain = models.TextField(verbose_name=" توضیحات یا راه‌حل مشکل را بیان کنید ",
                                        blank=True, null=True)
@@ -123,7 +124,6 @@ class DataGather(models.Model):
     QAQCYAfgCoAHVEqoBBTItOC4xuAEDyAEA-AEBmAILoAKBFMICBRAAGIAEwgIFEC4YgATCAhQQLhiABBiXBRjcBBjeBBjgBNgBAcICCxAuGIAEGMcBGK8
     BwgIIEC4YFhgeGArCAggQABgWGB4YCpgDAIgGAboGBggBEAEYFJIHCTIuMC43LjEuMaAHyVM&sclient=gws-wiz-serp """
 
-
     reaction_acid = models.CharField(max_length=25,
                                      choices=reaction_acid_Choices,
                                      verbose_name="واکنش سنگ/کانی به اسید",
@@ -141,7 +141,6 @@ class DataGather(models.Model):
 
     explain = models.TextField(verbose_name="هر مطلب مرتبطی که صلاح می‌دانید نگارش کنید", 
                                null=True, blank=True)
-
 
     created = models.DateTimeField(auto_now_add=True)
     updated = models.DateTimeField(auto_now=True)
