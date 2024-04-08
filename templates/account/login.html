@@ -51,7 +51,7 @@
             <button type="submit" class="btn btn-primary">ورود</button>
         </div>
         <div class="clearfix">
-            <a href="#" class="float-right">پسورد خود را فراموش کرده‌اید؟ </a>
+            <a href="{% url 'password_reset' %}" class="float-right">پسورد خود را فراموش کرده‌اید؟ </a>
         </div>        
     </form>
     <p class="text-center"><a href="{% url 'account:register' %}"> ساخت اکانت جدید </a></p>

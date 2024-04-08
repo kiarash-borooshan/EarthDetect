@@ -1,6 +1,7 @@
 from django.contrib.auth import login, authenticate, logout
 from django.shortcuts import render, redirect
-from .forms import RegistrationForm, LoginForm
+from .forms import RegistrationForm, LoginForm, AccountUpdateForm
+from .models import Account
 
 
 def register_view(request):
@@ -67,3 +68,32 @@ def login_view(request):
 def logout_view(request):
     logout(request)
     return redirect("dataGather:index")
+
+
+def edit_account_view(request, pk):
+
+    # TODO warning when password is not correct
+    # TODO titles in templates html cannot change to persian
+
+    account = Account.objects.get(pk=pk)
+    if not request.user.is_authenticated:
+        return redirect("account:login")
+    if request.POST:
+        form = AccountUpdateForm(data=request.POST,
+                                 files=request.FILES,
+                                 instance=request.user)
+        if form.is_valid():
+            form.save()
+            return redirect("account:edit_profile", pk=account.pk)
+
+    else:
+        form = AccountUpdateForm(initial={
+            "id": account.pk,
+            "email": account.email,
+            "username": account.username,
+            "profile_image": account.profile_image
+        })
+    return render(request,
+                  "account/edit_profile.html",
+                  {"form": form,
+                   "account": account})
