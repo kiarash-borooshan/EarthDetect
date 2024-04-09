@@ -32,7 +32,7 @@ def register_view(request):
             if acc:
                 login(request, acc)
                 # TODO redirect must change to Login
-                return redirect("account:edit_profile")
+                return redirect("dataGather:index")
     else:
         form = RegistrationForm()
     return render(request,
@@ -57,7 +57,7 @@ def login_view(request):
             if acc:
                 login(request, acc)
                 # TODO redirect to dashboard
-                return redirect("dataGather:add_post")
+                return redirect("dataGather:index")
     else:
         form = LoginForm()
     return render(request,

@@ -150,6 +150,8 @@ class DataGather(models.Model):
     objects = models.Manager()
 
     def __str__(self):
-        return self.title1 or None
+        if self.title1 is not None:
+            return self.title1
+        return "Unknown"
 
 
