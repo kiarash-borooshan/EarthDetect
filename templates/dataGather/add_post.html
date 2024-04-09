@@ -1,0 +1,70 @@
+{% extends 'base.html' %}
+{% block title %} اضافه کردن کالا {% endblock %}
+{% block content %}
+
+<div class="style-form" lang="fa-IR">
+    <form method="post" enctype="multipart/form-data">
+        {% csrf_token %}
+        <h2 class="text-center">Add Post</h2>
+
+        <h3 style="color:red" dir="rtl" lang="fa-IR"> نکته مهم: از یر کردن فیلدهایی که دانشی در مورد آن نداری اجتناب کنید.
+        مسئولیت اخلاقی و وجدانی اطلاعات غلظ بر عهده شماست
+        </h3>
+
+
+{% if form.errors %}
+    <p style="color:red">
+        لظفا خطاهای زیر را اصلاح کنید
+        <br>
+    </p>
+    {{ form.errors }}
+
+{% elif orm.management_form %}
+    <p style="color:red">
+        لظفا خطاهای زیر را اصلاح کنید
+        <br>
+    </p>
+    {{ form.management_form }}
+
+{% elif form.non_field_errors %}
+    <p style="color:red">
+        لظفا خطاهای زیر را اصلاح کنید
+        <br>
+    </p>
+    {{ form.non_field_errors }}
+
+{% elif form.non_form_errors %}
+    <p style="color:red">
+        لظفا خطاهای زیر را اصلاح کنید
+        <br>
+    </p>
+    {{ form.non_form_errors }}
+        <br><br>
+        <hr>
+        <hr>
+{% endif %}
+
+
+<!--        <div class="form-group">-->
+<!--            <label>-->
+<!--                <input type="text" name="geotag_images" class="form-control" placeholder="Username" required="required">-->
+<!--            </label>-->
+
+        {% for f in form %}
+        <br>
+            {{ f.label }}
+        <br><br>
+            {{ f }}
+        <br><br>
+        <hr>
+        {% endfor %}
+
+
+
+        <div class="form-group">
+            <button type="submit" class="btn btn-primary">ثبت عارضه </button>
+        </div>        
+    </form>
+</div>
+
+{% endblock %}

@@ -10,6 +10,7 @@
                     <li style="color:red"> {{request.user}} خوش آمدید </li>
                     <li><a href="{% url 'account:logout' %}">خروج</a></li>
                     <li><a href="{% url 'account:edit_profile' pk=request.user.pk %}"> پروفایل شخصی </a></li>
+                    <li><a href="{% url 'dataGather:add_post' %}"> ثبت عارضه </a></li>
                 </ul>
                 {% else %}
                 <ul>

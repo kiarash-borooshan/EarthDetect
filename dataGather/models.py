@@ -65,15 +65,15 @@ class DataGather(models.Model):
                                  blank=True, null=True)
     wind_velocity = models.PositiveIntegerField(verbose_name="سرعت باد(متربرثانیه) ",
                                                 blank=True, null=True)
-    feature = models.CharField(max_length=20,
-                               choices=Feature_Choices,
-                               default="انتخاب کنید",
-                               verbose_name="انتخاب گروه عارضه ")
-
     wind_direction = models.CharField(max_length=50,
                                       choices=Wind_Dir_Choices,
                                       verbose_name="جهت وزش باد",
                                       blank=True, null=True)
+
+    feature = models.CharField(max_length=20,
+                               choices=Feature_Choices,
+                               default="انتخاب کنید",
+                               verbose_name="انتخاب گروه عارضه ")
 
     title1 = models.CharField(max_length=50,
                               verbose_name="نام عارضه به فارسی ",
@@ -130,7 +130,7 @@ class DataGather(models.Model):
                                      blank=True, null=True)
 
     """ اگر عارضه دود یا گاز باشد """
-    smoke = models.TextField(verbose_name="دود حاصل از سوختن چه عراضه یا مارده‌ای می‌باشد و دارای چه عناصری است",
+    smoke = models.TextField(verbose_name="دود حاصل از سوختن چه عارضه یا ماده‌ای می‌باشد و دارای چه عناصری است",
                              blank=True, null=True)
 
     """ اگر عارضه خاک باشد """
@@ -150,6 +150,6 @@ class DataGather(models.Model):
     objects = models.Manager()
 
     def __str__(self):
-        return self.title1
+        return self.title1 or None
 
 
