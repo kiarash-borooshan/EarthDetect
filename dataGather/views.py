@@ -1,5 +1,6 @@
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.mixins import LoginRequiredMixin
+from django.contrib.messages.views import SuccessMessageMixin
 from django.http import HttpResponse
 from django.shortcuts import render, redirect, get_object_or_404
 from django.urls import reverse_lazy
@@ -47,17 +48,19 @@ def index(request):
 #     return HttpResponse("داده‌ها با موفقیت ثبت شدند. ")
 
 
-class AddPost(CreateView):
+class AddPost(LoginRequiredMixin, SuccessMessageMixin, CreateView):
     # TODO: user and slug must exclude and EditPost
     # TODO: UserPassesTestMixin failed for rest
     model = DataGather
     template_name = "dataGather/add_post.html"
-    fields = ("geotag_images", "title1", "title2", "temperature", "humidity",
+    fields = ("geotag_images", "location", "title1", "title2", "temperature", "humidity",
               "wind_velocity", "wind_direction", "feature", "health_state",
               "disease", "disease_explain", "height", "date_of_irrigation",
               "date_of_Fertilization", "rock_choice", "color", "Mohs_hardness",
               "reaction_acid", "smoke", "explain")
     success_url = reverse_lazy("dataGather:add_post")
+    success_message = 'اطلاعات با موفقیت ثبت شد'
+    error_meesage = "خطا در پر کزدن فیلدها"
 
     def form_valid(self, form):
         form.instance.author = self.request.user

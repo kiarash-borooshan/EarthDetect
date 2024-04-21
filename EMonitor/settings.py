@@ -39,6 +39,8 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     "dataGather",
     "account",
+    "django.contrib.gis",
+    "leaflet"
 ]
 
 MIDDLEWARE = [
@@ -75,10 +77,21 @@ WSGI_APPLICATION = 'EMonitor.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/5.0/ref/settings/#databases
 
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.sqlite3',
+#         'NAME': BASE_DIR / 'db.sqlite3',
+#     }
+# }
+
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+        'ENGINE': 'django.contrib.gis.db.backends.postgis',
+        'NAME': "EMonitor",
+        "USER": "postgres",
+        "PASSWORD": "1234",
+        "HOST": "localhost",
+        "PORT": "5432"
     }
 }
 
@@ -142,3 +155,12 @@ AUTH_USER_MODEL = 'account.Account'
 """ email setting """
 if DEBUG:
     EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
+
+""" leaflet config"""
+LEAFLET_CONFIG = {
+    "DEFAULT_CENTER": (32, 53),
+    "DEFAULT_ZOOM": 5,
+    "SCALE": "both",
+    "ATTRIBUTION_PREFIX": 'EarthDetect.ir'
+    # "MAX_zoom": 3,
+}

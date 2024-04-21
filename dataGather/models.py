@@ -1,5 +1,6 @@
-from django.contrib.auth.models import User
-from django.db import models
+# from django.contrib.auth.models import User
+# from django.db import models
+from django.contrib.gis.db import models
 from account.models import Account
 
 
@@ -56,7 +57,19 @@ class DataGather(models.Model):
                                related_name="author", 
                                null=True, blank=True)
     geotag_images = models.ImageField(upload_to="geotag_images",
-                                      verbose_name="(*) (geo-tag) آپلود تصویر زمین مرجع   ")
+                                      verbose_name="(*) (geo-tag) آپلود تصویر زمین مرجع",
+                                      blank=True, null=True)
+    location = models.PointField(verbose_name='اگر به تصاویر ژئوتگ دسترسی ندارید می‌توانید'
+                                              ' نقطه مورد نظر را در نقشه پیدا و با دابل کلیک علامت‌گذاری کنید.'
+                                              ' مسئولیت اخلاقی و وجدانی اطلاعات اشتباه بر عهده شماست',
+                                 blank=True, null=True,
+                                 srid=4326)
+    title1 = models.CharField(max_length=50,
+                              verbose_name="نام عارضه به فارسی ",
+                              blank=True, null=True)
+    title2 = models.CharField(max_length=100,
+                              verbose_name="نام عارضه به انگلیسی ",
+                              blank=True, null=True)
     temperature = models.FloatField(max_length=4,
                                     verbose_name="دمای محیط به درجه سانتی‌گراد",
                                     blank=True, null=True)
@@ -73,14 +86,9 @@ class DataGather(models.Model):
     feature = models.CharField(max_length=20,
                                choices=Feature_Choices,
                                default="انتخاب کنید",
-                               verbose_name="انتخاب گروه عارضه ")
+                               verbose_name="انتخاب گروه عارضه ",
+                               blank=True, null=True)
 
-    title1 = models.CharField(max_length=50,
-                              verbose_name="نام عارضه به فارسی ",
-                              blank=True, null=True)
-    title2 = models.CharField(max_length=100,
-                              verbose_name="نام عارضه به انگلیسی ",
-                              blank=True, null=True)
     """ اگر عارضه انتخاب شده کشاورزی یا باغ باشد """
     health_state = models.CharField(max_length=20,
                                     choices=Health_Choices,

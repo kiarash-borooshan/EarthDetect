@@ -10,7 +10,7 @@
         <h3 style="color:red" dir="rtl" lang="fa-IR"> نکته مهم: از یر کردن فیلدهایی که دانشی در مورد آن نداری اجتناب کنید.
         مسئولیت اخلاقی و وجدانی اطلاعات غلظ بر عهده شماست
         </h3>
-
+{{ form.message }}
 
 {% if form.errors %}
     <p style="color:red">
@@ -19,7 +19,15 @@
     </p>
     {{ form.errors }}
 
-{% elif orm.management_form %}
+
+ {% elif form.message %}
+    <p style="color:red">
+        لظفا خطاهای زیر را اصلاح کنید
+        <br>
+    </p>
+    {{ form.message }}
+
+{% elif form.management_form %}
     <p style="color:red">
         لظفا خطاهای زیر را اصلاح کنید
         <br>

@@ -8,12 +8,10 @@ def register_view(request):
     user = request.user
 
     if user.is_authenticated:
-        # TODO redirect to Dashboard
-        return redirect("dataGather:index")
+        return redirect("dataGather:add_post")
 
     if request.user.is_authenticated:
-        # TODO redirect must change to Login
-        return redirect("dataGather:index")
+        return redirect("dataGather:add_post")
     if request.method == "POST":
         form = RegistrationForm(data=request.POST)
         if form.is_valid():
@@ -31,8 +29,7 @@ def register_view(request):
 
             if acc:
                 login(request, acc)
-                # TODO redirect must change to Login
-                return redirect("dataGather:index")
+                return redirect("dataGather:add_post")
     else:
         form = RegistrationForm()
     return render(request,
@@ -42,9 +39,8 @@ def register_view(request):
 
 def login_view(request):
     user = request.user
-    # TODO redirect to dashboard
     if user.is_authenticated:
-        return redirect("dataGather:index")
+        return redirect("dataGather:add_post")
 
     if request.POST:
         form = LoginForm(data=request.POST)
@@ -57,7 +53,7 @@ def login_view(request):
             if acc:
                 login(request, acc)
                 # TODO redirect to dashboard
-                return redirect("dataGather:index")
+                return redirect("dataGather:add_post")
     else:
         form = LoginForm()
     return render(request,
