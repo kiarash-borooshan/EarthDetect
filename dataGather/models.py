@@ -1,7 +1,7 @@
 # from django.contrib.auth.models import User
-# from django.db import models
-from django.contrib.gis.db import models
+from django.db import models
 from account.models import Account
+# from django.contrib.gis.db import models
 
 
 class DataGather(models.Model):
@@ -59,11 +59,14 @@ class DataGather(models.Model):
     geotag_images = models.ImageField(upload_to="geotag_images",
                                       verbose_name="(*) (geo-tag) آپلود تصویر زمین مرجع",
                                       blank=True, null=True)
-    location = models.PointField(verbose_name='اگر به تصاویر ژئوتگ دسترسی ندارید می‌توانید'
-                                              ' نقطه مورد نظر را در نقشه پیدا و با دابل کلیک علامت‌گذاری کنید.'
-                                              ' مسئولیت اخلاقی و وجدانی اطلاعات اشتباه بر عهده شماست',
-                                 blank=True, null=True,
-                                 srid=4326)
+
+    # # for map
+    # location = models.PointField(verbose_name='اگر به تصاویر ژئوتگ دسترسی ندارید می‌توانید'
+    #                                           ' نقطه مورد نظر را در نقشه پیدا و با دابل کلیک علامت‌گذاری کنید.'
+    #                                           ' مسئولیت اخلاقی و وجدانی اطلاعات اشتباه بر عهده شماست',
+    #                              blank=True, null=True,
+    #                              srid=4326)
+
     title1 = models.CharField(max_length=50,
                               verbose_name="نام عارضه به فارسی ",
                               blank=True, null=True)

@@ -53,7 +53,7 @@ class AddPost(LoginRequiredMixin, SuccessMessageMixin, CreateView):
     # TODO: UserPassesTestMixin failed for rest
     model = DataGather
     template_name = "dataGather/add_post.html"
-    fields = ("geotag_images", "location", "title1", "title2", "temperature", "humidity",
+    fields = ("geotag_images", "title1", "title2", "temperature", "humidity",
               "wind_velocity", "wind_direction", "feature", "health_state",
               "disease", "disease_explain", "height", "date_of_irrigation",
               "date_of_Fertilization", "rock_choice", "color", "Mohs_hardness",
@@ -61,6 +61,16 @@ class AddPost(LoginRequiredMixin, SuccessMessageMixin, CreateView):
     success_url = reverse_lazy("dataGather:add_post")
     success_message = 'اطلاعات با موفقیت ثبت شد'
     error_meesage = "خطا در پر کزدن فیلدها"
+
+    # location
+    # fields = ("geotag_images", "location", "title1", "title2", "temperature", "humidity",
+    #           "wind_velocity", "wind_direction", "feature", "health_state",
+    #           "disease", "disease_explain", "height", "date_of_irrigation",
+    #           "date_of_Fertilization", "rock_choice", "color", "Mohs_hardness",
+    #           "reaction_acid", "smoke", "explain")
+    # success_url = reverse_lazy("dataGather:add_post")
+    # success_message = 'اطلاعات با موفقیت ثبت شد'
+    # error_meesage = "خطا در پر کزدن فیلدها"
 
     def form_valid(self, form):
         form.instance.author = self.request.user
