@@ -20,4 +20,11 @@ satellite image process by collective wisdom
 
 
 ## TODO list
-- [] اضافه کردن مپ به مدل: این کار انجام شده ولی کارشناس ارائه دهنده هاست می‌گوید که سی‌پنل نسخه جدید پستگرس را آپدیت نمی‌کند
+- [ ] اضافه کردن مپ به مدل: این کار انجام شده ولی کارشناس ارائه دهنده هاست می‌گوید که سی‌پنل نسخه جدید پستگرس را آپدیت نمی‌کند
+
+
+![Screenshot from 2024-04-23 15-33-11cen](https://github.com/kiarash-borooshan/EarthDetect/assets/71966936/7a75b5be-7305-477e-b524-1f178ab3cc3a)
+
+![Screenshot from 2024-04-24 06-14-09_cen](https://github.com/kiarash-borooshan/EarthDetect/assets/71966936/cc1105b9-f74e-4dc4-a887-5ce298201f61)
+
+![Screenshot from 2024-04-22 08-25-02cen](https://github.com/kiarash-borooshan/EarthDetect/assets/71966936/d9b48582-0581-48ae-875e-2f7a929e7097)
