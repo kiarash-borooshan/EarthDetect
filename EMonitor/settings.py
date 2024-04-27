@@ -85,6 +85,9 @@ DATABASES = {
     }
 }
 
+# TODO تغییر پایگاه داده به پستگرس (اررور سی‌پنل دز ریدمی توضیح داده شده)
+# در سرور سی‌پنل به اررور می‌خورد که در readme.md توضیح داده شده
+
 # DATABASES = {
 #     'default': {
 #         'ENGINE': 'django.contrib.gis.db.backends.postgis',
@@ -93,6 +96,16 @@ DATABASES = {
 #         "PASSWORD": "1234",
 #         "HOST": "localhost",
 #         "PORT": "5432"
+#     }
+# }
+
+# در سرور سی‌پنل به اررور می‌خورد که در readme.md توضیح داده شده
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.contrib.gis.db.backends.postgis',
+#         'NAME': "earthdet_DbED_kshdsoih",
+#         "USER": "earthdet_hsaraik",
+#         "PASSWORD": "Es9clHgYKLt7",
 #     }
 # }
 

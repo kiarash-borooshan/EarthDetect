@@ -1,6 +1,6 @@
 from django.contrib import admin
 from .models import DataGather
-from leaflet.admin import LeafletGeoAdmin
+# from leaflet.admin import LeafletGeoAdmin
 
 
 @admin.register(DataGather)

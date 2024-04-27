@@ -62,7 +62,7 @@ class AddPost(LoginRequiredMixin, SuccessMessageMixin, CreateView):
     success_message = 'اطلاعات با موفقیت ثبت شد'
     error_meesage = "خطا در پر کزدن فیلدها"
 
-    # location
+    # location failed on cPanel
     # fields = ("geotag_images", "location", "title1", "title2", "temperature", "humidity",
     #           "wind_velocity", "wind_direction", "feature", "health_state",
     #           "disease", "disease_explain", "height", "date_of_irrigation",
