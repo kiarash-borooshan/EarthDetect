@@ -25,7 +25,7 @@ SECRET_KEY = 'django-insecure-2lra0(b&x6byw3%mtgp=7gx42m4m#z9f&8+czd)w$jfjm2b9xi
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['earthdetect.ir', 'www.earthdetect.ir']
 
 
 # Application definition
@@ -178,3 +178,14 @@ if DEBUG:
 #     "ATTRIBUTION_PREFIX": 'EarthDetect.ir'
 #     # "MAX_zoom": 3,
 # }
+
+
+""" security """
+SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
+SECURE_SSL_REDIRECT = True
+
+SECURE_BROWSER_XSS_FILTER = True
+SECURE_CONTENT_TYPE_NOSNIFF = True
+
+CSRF_COOKIE_SECURE = True #to avoid transmitting the CSRF cookie over HTTP accidentally.
+SESSION_COOKIE_SECURE = True #to avoid transmitting the session cookie over HTTP accidentally.
