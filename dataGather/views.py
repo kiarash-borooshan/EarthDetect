@@ -79,3 +79,18 @@ class AddPost(LoginRequiredMixin, SuccessMessageMixin, CreateView):
     # def test_func(self):
     #     obj = self.get_object()
     #     return obj.user == self.request.user
+
+
+def donate(request):
+    return render(request,
+                  "other/donate.html")
+
+
+def github(request):
+    return render(request,
+                  "other/github.html")
+
+
+def weblog(request):
+    return render(request,
+                  "other/weblog.html")

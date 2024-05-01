@@ -10,4 +10,7 @@ urlpatterns = [
     # path("add_post", views.add_post, name="add_post"),
     # path("success/", views.success, name="success"),
     path("add_post/", views.AddPost.as_view(), name="add_post"),
+    path("donate/", views.donate, name="donate"),
+    path("github/", views.github, name="github"),
+    path("weblog/", views.weblog, name="weblog"),
 ]

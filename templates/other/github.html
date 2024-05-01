@@ -1,0 +1,32 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %} GreenWorld {% endblock %}
+
+
+{% block content %}
+
+    <center>
+        <br><br>
+    <div class="article">
+        <img src="{% static 'images/git.webp' %}"
+             width="300"
+             height="200">
+      <p>
+          در صورت تمایل می‌توانید در تکمیل کدنویسی این سایت مشارکت داشته باشید و
+          در صورتی که این سایت بتواند به منافع اقتصادی برسد،
+          این منافع بین مشارکت‌کنندگان بر اساس میزان مشارکت تقسیم خواهد شد
+          <br>
+          <a href="{% static 'images/github.png' %}"> صفحه گیت‌هاب این سایت</a>
+          <br>
+          همچنین خواهشمنداست از انجام کارهای تکراری خودداری فرمایید
+
+      </p>
+    </div>
+    </center>
+
+
+  </div>
+
+  <div class="clr"></div>
+{% endblock %}

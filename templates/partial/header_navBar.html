@@ -5,17 +5,28 @@
           </div>
           <div class="menu_nav">
 
+
                 {% if user.is_authenticated %}
                 <ul>
+                    <li><a href="{% url 'dataGather:github' %}">Github</a></li>
+                  <li><a href="{% url 'dataGather:weblog' %}">Weblog</a></li>
+                  <li><a href="{% url 'dataGather:donate' %}">Donate</a></li>
+
                     <li style="color:red"> {{request.user}} خوش آمدید </li>
                     <li><a href="{% url 'account:logout' %}">خروج</a></li>
                     <li><a href="{% url 'account:edit_profile' pk=request.user.pk %}"> پروفایل شخصی </a></li>
                     <li><a href="{% url 'dataGather:add_post' %}"> ثبت عارضه </a></li>
+
                 </ul>
                 {% else %}
                 <ul>
+                    <li><a href="{% url 'dataGather:github' %}">Github</a></li>
+                      <li><a href="{% url 'dataGather:weblog' %}">Weblog</a></li>
+                      <li><a href="{% url 'dataGather:donate' %}">Donate</a></li>
+
                     <li><a href="{% url 'account:login'  %}">ورود </a></li>
                     <li><a href="{% url 'account:register' %}">ثبت‌نام </a></li>
+
                 </ul>
                 {% endif %}
 
